@@ -16,26 +16,26 @@ service PersonManager {
 
 // The request message containing the person's id.
 message PersonIdRequest {
-  string id = 1;
+	string id = 1;
 }
 
 // The request message containing the person's name.
 message PersonNameRequest {
-  string name = 1;
+	  string name = 1;
 }
 
 // The response message containing a person
 message PersonReply {
-  string id = 1;
-  string name = 2;
+	  string id = 1;
+	  string name = 2;
 }
 
 // The request message to insert a person
 message PersonRequest {
-  string name = 1;
+	  string name = 1;
 }
 
 // The response message containing a list of person
 message PersonListReply {
-  repeated PersonReply personList = 1;
+	  repeated PersonReply personList = 1;
 }
