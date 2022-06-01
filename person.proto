@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option csharp_namespace = "PPMicroserviceTemplate";
+
+package person;
+
+// The Person Manager service definition.
+service PersonManager {
+	//Get a Person by Id
+	rpc GetById (PersonIdRequest) returns (PersonReply);
+	//Get a Person by Name
+	rpc GetByName (PersonNameRequest) returns (PersonListReply);
+	//Insert a Person
+	rpc Insert (PersonRequest) returns (PersonReply);
+}
+
+// The request message containing the person's id.
+message PersonIdRequest {
+  string id = 1;
+}
+
+// The request message containing the person's name.
+message PersonNameRequest {
+  string name = 1;
+}
+
+// The response message containing a person
+message PersonReply {
+  string id = 1;
+  string name = 2;
+}
+
+// The request message to insert a person
+message PersonRequest {
+  string name = 1;
+}
+
+// The response message containing a list of person
+message PersonListReply {
+  repeated PersonReply personList = 1;
+}
