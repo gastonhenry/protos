@@ -9,33 +9,44 @@ service PersonManager {
 	//Get a Person by Id
 	rpc GetById (PersonIdRequest) returns (PersonReply);
 	//Get a Person by Name
-	rpc GetByName (PersonNameRequest) returns (PersonListReply);
+	rpc GetActives (Empty) returns (PersonListReply);
 	//Insert a Person
 	rpc Insert (PersonRequest) returns (PersonReply);
+	//Logic delete of a person
+	rpc Delete (PersonIdRequest) returns (BoolReply);
+}
+
+// Empty message
+message Empty {}
+
+// Bool message
+message BoolReply {
+	bool result = 1;
 }
 
 // The request message containing the person's id.
 message PersonIdRequest {
-	string id = 1;
+  string id = 1;
 }
 
 // The request message containing the person's name.
 message PersonNameRequest {
-	  string name = 1;
+  string name = 1;
 }
 
 // The response message containing a person
 message PersonReply {
-	  string id = 1;
-	  string name = 2;
+  string id = 1;
+  string name = 2;
+  bool active = 3;
 }
 
 // The request message to insert a person
 message PersonRequest {
-	  string name = 1;
+  string name = 1;
 }
 
 // The response message containing a list of person
 message PersonListReply {
-	  repeated PersonReply personList = 1;
+  repeated PersonReply personList = 1;
 }
