@@ -2,18 +2,20 @@ syntax = "proto3";
 
 option csharp_namespace = "PPMicroserviceTemplate";
 
-package person;
+package user;
 
-// The Person Manager service definition.
-service PersonManager {
-	//Get a Person by Id
-	rpc GetById (PersonIdRequest) returns (PersonReply);
-	//Get a Person by Name
-	rpc GetActives (Empty) returns (PersonListReply);
-	//Insert a Person
-	rpc Insert (PersonRequest) returns (PersonReply);
-	//Logic delete of a person
-	rpc Delete (PersonIdRequest) returns (BoolReply);
+// The User Manager service definition.
+service UserManager {
+	//Get a User by Id
+	rpc GetById (UserIdRequest) returns (UserReply);
+	//Get all Users by Name
+	rpc GetByName (UserNameRequest) returns (UserListReply);
+	//Get all active users  
+	rpc GetActives (Empty) returns (UserListReply);
+	//Insert a User
+	rpc Insert (UserRequest) returns (UserReply);
+	//Logic delete of a User
+	rpc Delete (UserIdRequest) returns (BoolReply);
 }
 
 // Empty message
@@ -24,29 +26,29 @@ message BoolReply {
 	bool result = 1;
 }
 
-// The request message containing the person's id.
-message PersonIdRequest {
+// The request message containing the user's id.
+message UserIdRequest {
   string id = 1;
 }
 
-// The request message containing the person's name.
-message PersonNameRequest {
+// The request message containing the user's name.
+message UserNameRequest {
   string name = 1;
 }
 
-// The response message containing a person
-message PersonReply {
+// The response message containing a user
+message UserReply {
   string id = 1;
   string name = 2;
   bool active = 3;
 }
 
-// The request message to insert a person
-message PersonRequest {
+// The request message to insert a user
+message UserRequest {
   string name = 1;
 }
 
-// The response message containing a list of person
-message PersonListReply {
-  repeated PersonReply personList = 1;
+// The response message containing a list of user
+message UserListReply {
+  repeated UserReply userList = 1;
 }
