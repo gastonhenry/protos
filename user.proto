@@ -4,6 +4,8 @@ option csharp_namespace = "PPMicroserviceTemplate";
 
 package user;
 
+import "google/protobuf/empty.proto";
+
 // The User Manager service definition.
 service UserManager {
 	//Get a User by Id
@@ -11,18 +13,15 @@ service UserManager {
 	//Get all Users by Name
 	rpc GetByName (UserNameRequest) returns (UserListReply);
 	//Get all active users  
-	rpc GetActives (Empty) returns (UserListReply);
+	rpc GetActives (google.protobuf.Empty) returns (UserListReply);
 	//Insert a User
 	rpc Insert (UserRequest) returns (UserReply);
 	//Logic delete of a User
-	rpc Delete (UserIdRequest) returns (BoolReply);
+	rpc Delete (UserIdRequest) returns (UserBoolReply);
 }
 
-// Empty message
-message Empty {}
-
 // Bool message
-message BoolReply {
+message UserBoolReply {
 	bool result = 1;
 }
 
