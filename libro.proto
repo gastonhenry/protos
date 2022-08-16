@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+option csharp_namespace = "PPI.Protos";
+
+package libro;
+
+import "google/protobuf/empty.proto";
+
+// The Libro service definition.
+service LibroManager {
+	//Get a Libro by Id
+	rpc GetById (LibroIdRequest) returns (LibroReply);
+	//Get all Libros
+	rpc GetAll (google.protobuf.Empty) returns (LibroListReply);
+	//Search Libros by Nombre
+	rpc SearchByNombre (LibroNombreRequest) returns (LibroListReply);
+	//Delete
+	rpc Delete (LibroIdRequest) returns (LibroBoolReply);
+	//Insert
+	rpc Insert (LibroInsertRequest) returns (LibroReply);
+	//Update
+	rpc Update (LibroUpdateRequest) returns (LibroReply);
+}
+
+// Bool message
+message LibroBoolReply {
+	bool result = 1;
+}
+
+// The request message containing the Libro's id.
+message LibroIdRequest {
+	int64 id = 1;
+}
+
+// The request message containing the Libro's nombre.
+message LibroNombreRequest {
+	string nombre = 1;
+}
+
+// The response message containing a Libro
+message LibroReply {
+	int64 id = 1;
+	string nombre = 2;
+	AutorReply autor = 3;
+}
+
+//The response message containing an Autor
+message AutorReply {
+	int64 id = 1;
+	string nombre = 2;
+	string apellido = 3;
+}
+
+// The request message to insert a Libro
+message LibroInsertRequest {
+	string nombre = 1;
+	int64 autorId = 2;
+}
+
+// The request message to update a Libro
+message LibroUpdateRequest {
+	int64 id = 1;
+	string nombre = 2;
+	int64 autorId = 3;
+}
+
+// The response message containing a list of Libro
+message LibroListReply {
+	repeated LibroReply libros = 1;
+}
