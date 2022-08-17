@@ -20,6 +20,8 @@ service PeliculaManager {
 	rpc Insert (PeliculaInsertRequest) returns (PeliculaReply);
 	//Update a Libro
 	rpc Update (PeliculaUpdateRequest) returns (PeliculaReply);
+	//Update a Libro
+	rpc Updatee (PeliculaUpdateRequest) returns (PeliculaReply);
 }
 
 // Bool message
