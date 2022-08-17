@@ -18,10 +18,10 @@ service PeliculaManager {
 	rpc Delete (PeliculaIdRequest) returns (PeliculaBoolReply);
 	//Insert
 	rpc Insert (PeliculaInsertRequest) returns (PeliculaReply);
-	//Update a Libro
+	//Update
 	rpc Update (PeliculaUpdateRequest) returns (PeliculaReply);
-	//Update a Libro
-	rpc Updatee (PeliculaUpdateRequest) returns (PeliculaReply);
+	//UpdateTest
+	rpc UpdateTest (PeliculaUpdateRequest) returns (PeliculaReply);
 }
 
 // Bool message
@@ -52,7 +52,7 @@ message PeliculaInsertRequest {
 	string director = 2;
 }
 
-// The request message to update a Libro
+// The request message to update a Pelicula
 message PeliculaUpdateRequest {
 	string id = 1;
 	string nombre = 2;
