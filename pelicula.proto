@@ -21,7 +21,7 @@ service PeliculaManager {
 	//Update
 	rpc Update (PeliculaUpdateRequest) returns (PeliculaReply);
 	//UpdateTest
-	rpc UpdateTest (PeliculaUpdateRequest) returns (PeliculaReply);
+	rpc UpdateTest2 (PeliculaUpdateRequest) returns (PeliculaReply);
 }
 
 // Bool message
