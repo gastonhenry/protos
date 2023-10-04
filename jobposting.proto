@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+option csharp_namespace = "PPI.Protos";
+
+package jobposting;
+
+import "google/protobuf/empty.proto";
+
+// The JobPosting Manager service definition.
+service JobPostingManager {
+	//Get and filter job postings
+	rpc Get (JobPostingFilterRequest) returns (JobPostingListReply);
+	//Get a job posting by id
+	rpc GetById (JobPostingIdRequest) returns (JobPostingReply);
+	//Insert a job posting
+	rpc Insert (JobPostingInsertRequest) returns (JobPostingReply);
+	//Update a job posting
+	rpc Update (JobPostingUpdateRequest) returns (JobPostingReply);
+	//Delete a job posting
+	rpc Delete (JobPostingIdRequest) returns (JobPostingBoolReply);
+}
+
+//JobPostingFilterRequest
+message JobPostingFilterRequest{
+	string area = 1;
+	string name = 2;
+	string employmentTypeId = 3;
+	bool onlyActive = 4;
+}
+
+//The response message containing a job posting
+message JobPostingReply {
+	string id = 1;
+	string area = 2;
+	string name = 3;
+	string description = 4;
+	string employmentTypeId = 5;
+	string lastEdition = 6;
+	string lastPublish = 7;
+	bool active = 8;
+}
+
+//The response message containing a list of job postings
+message JobPostingListReply {
+	repeated JobPostingReply JobPostings = 1;
+}
+
+//The request message to insert a job posting
+message JobPostingInsertRequest {
+	string area = 1;
+	string name = 2;
+	string description = 3;
+	string employmentTypeId = 4;
+	bool active = 5;
+}
+
+//The request message to update a job posting
+message JobPostingUpdateRequest {
+	string id = 1;
+	string area = 2;
+	string name = 3;
+	string description = 4;
+	string employmentTypeId = 5;
+	bool active = 6;
+}
+
+//The request message containing the job posting's id.
+message JobPostingIdRequest {
+	string id = 1;
+}
+
+// Bool message
+message JobPostingBoolReply {
+	bool result = 1;
+}

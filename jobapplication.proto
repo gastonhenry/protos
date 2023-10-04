@@ -1,0 +1,126 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "PPI.Protos";
+
+package jobapplication;
+
+import "google/protobuf/empty.proto";
+
+// The JobApplication Manager service definition.
+service JobApplicationManager {
+	//Get and filter job applications
+	rpc Get (JobApplicationFilterRequest) returns (JobApplicationListReply);
+	//Get a job application by id
+	rpc GetById (JobApplicationIdRequest) returns (JobApplicationReply);
+	//Insert a job application
+	rpc Insert (JobApplicationInsertRequest) returns (JobApplicationReply);
+	//Update a job application
+	rpc Update (JobApplicationUpdateRequest) returns (JobApplicationReply);
+	//Delete a job application
+	rpc Delete (JobApplicationIdRequest) returns (JobApplicationBoolReply);
+	//Insert a HR Comment
+	rpc InsertHRComment (HRCommentRequest) returns (JobApplicationReply);
+}
+
+//JobApplicationFilterRequest
+message JobApplicationFilterRequest{
+	string area = 1;
+	string name = 2;
+	string jobPostingId = 3;
+}
+
+//The response message containing a job application
+message JobApplicationReply {
+	string id = 1;
+	string identificationDocumentTypeId = 2;
+	string identificationDocument = 3;
+	string genderId = 4;
+	string name = 5;
+	string lastName = 6;
+	string nationalityId = 7;
+	string email = 8;
+	string countryCode = 9;
+	string areaCode = 10;
+	string telephoneTypeId = 11;
+	string telephone = 12;
+	string country = 13;
+	string province = 14;
+	string city = 15;
+	string address = 16;
+	string academicDisciplineId = 17;
+	string employmentTypePreferenceId = 18;
+	string linkedin = 19;
+	string expectedSalary = 20;
+	string aditionalMessage = 21;
+	bool acceptTerms = 22;
+	string cv = 23;
+	string jobPostingId = 24;
+	string area = 25;
+	string hrStatus = 26;
+	repeated HRComment hrComment = 27;
+}
+
+//The response message containing a list of job applications
+message JobApplicationListReply {
+	repeated JobApplicationReply JobApplications = 1;
+}
+
+//The request message to insert a job application
+message JobApplicationInsertRequest {
+	string identificationDocumentTypeId = 1;
+	string identificationDocument = 2;
+	string genderId = 3;
+	string name = 4;
+	string lastName = 5;
+	string nationalityId = 6;
+	string email = 7;
+	string countryCode = 8;
+	string areaCode = 9;
+	string telephoneTypeId = 10;
+	string telephone = 11;
+	string country = 12;
+	string province = 13;
+	string city = 14;
+	string address = 15;
+	string academicDisciplineId = 16;
+	string employmentTypePreferenceId = 17;
+	string linkedin = 18;
+	string expectedSalary = 19;
+	string aditionalMessage = 20;
+	bool acceptTerms = 21;
+	string cv = 22;
+	string jobPostingId = 23;
+	string area = 24;
+	string hrStatus = 25;
+	repeated HRComment hrComment = 26;
+}
+
+//The request message to update a job application
+message JobApplicationUpdateRequest {
+	string id = 1;
+	string hrStatus = 2;
+	string hrComment = 3;
+}
+
+//The request message containing the job application's id.
+message JobApplicationIdRequest {
+	string id = 1;
+}
+
+// Bool message
+message JobApplicationBoolReply {
+	bool result = 1;
+}
+
+// HRComment message
+message HRComment {
+	string username = 1;
+	string message = 2;
+	string commentDate = 3;
+}
+
+// HRCommentRequest message
+message HRCommentRequest {
+	string jobApplicationId = 1;
+	HRComment comment = 2
+}
