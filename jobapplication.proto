@@ -122,5 +122,5 @@ message HRComment {
 // HRCommentRequest message
 message HRCommentRequest {
 	string jobApplicationId = 1;
-	HRComment comment = 2
+	HRComment comment = 2;
 }
