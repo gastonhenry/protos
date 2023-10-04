@@ -24,7 +24,7 @@ service JobApplicationManager {
 
 //JobApplicationFilterRequest
 message JobApplicationFilterRequest{
-	string area = 1;
+	string areaId = 1;
 	string name = 2;
 	string jobPostingId = 3;
 }
@@ -55,7 +55,7 @@ message JobApplicationReply {
 	bool acceptTerms = 22;
 	string cv = 23;
 	string jobPostingId = 24;
-	string area = 25;
+	string areaId = 25;
 	string hrStatus = 26;
 	repeated HRComment hrComment = 27;
 }
@@ -90,7 +90,7 @@ message JobApplicationInsertRequest {
 	bool acceptTerms = 21;
 	string cv = 22;
 	string jobPostingId = 23;
-	string area = 24;
+	string areaId = 24;
 	string hrStatus = 25;
 	repeated HRComment hrComment = 26;
 }
