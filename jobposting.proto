@@ -22,7 +22,7 @@ service JobPostingManager {
 
 //JobPostingFilterRequest
 message JobPostingFilterRequest{
-	string area = 1;
+	string areaId = 1;
 	string name = 2;
 	string employmentTypeId = 3;
 	bool onlyActive = 4;
@@ -31,7 +31,7 @@ message JobPostingFilterRequest{
 //The response message containing a job posting
 message JobPostingReply {
 	string id = 1;
-	string area = 2;
+	string areaId = 2;
 	string name = 3;
 	string description = 4;
 	string employmentTypeId = 5;
@@ -47,7 +47,7 @@ message JobPostingListReply {
 
 //The request message to insert a job posting
 message JobPostingInsertRequest {
-	string area = 1;
+	string areaId = 1;
 	string name = 2;
 	string description = 3;
 	string employmentTypeId = 4;
@@ -57,7 +57,7 @@ message JobPostingInsertRequest {
 //The request message to update a job posting
 message JobPostingUpdateRequest {
 	string id = 1;
-	string area = 2;
+	string areaId = 2;
 	string name = 3;
 	string description = 4;
 	string employmentTypeId = 5;
