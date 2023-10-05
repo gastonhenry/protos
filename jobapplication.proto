@@ -19,7 +19,7 @@ service JobApplicationManager {
 	//Delete a job application
 	rpc Delete (JobApplicationIdRequest) returns (JobApplicationBoolReply);
 	//Insert a HR Comment
-	rpc InsertHRComment (HRCommentRequest) returns (JobApplicationReply);
+	rpc InsertComment (CommentRequest) returns (JobApplicationReply);
 }
 
 //JobApplicationFilterRequest
@@ -56,8 +56,8 @@ message JobApplicationReply {
 	string cv = 23;
 	string jobPostingId = 24;
 	string areaId = 25;
-	string hrStatus = 26;
-	repeated HRComment hrComment = 27;
+	string humanResourcesEvaluationId = 26;
+	repeated Comment humanResourcesComments = 27;
 }
 
 //The response message containing a list of job applications
@@ -91,8 +91,8 @@ message JobApplicationInsertRequest {
 	string cv = 22;
 	string jobPostingId = 23;
 	string areaId = 24;
-	string hrStatus = 25;
-	repeated HRComment hrComment = 26;
+	string humanResourcesEvaluationId = 25;
+	repeated Comment humanResourcesComments = 26;
 }
 
 //The request message to update a job application
@@ -112,15 +112,15 @@ message JobApplicationBoolReply {
 	bool result = 1;
 }
 
-// HRComment message
-message HRComment {
+// Comment message
+message Comment {
 	string username = 1;
 	string message = 2;
 	string commentDate = 3;
 }
 
-// HRCommentRequest message
-message HRCommentRequest {
+// CommentRequest message
+message CommentRequest {
 	string jobApplicationId = 1;
-	HRComment comment = 2;
+	Comment comment = 2;
 }
