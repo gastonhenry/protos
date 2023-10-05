@@ -22,19 +22,19 @@ service JobPostingManager {
 
 //JobPostingFilterRequest
 message JobPostingFilterRequest{
-	string areaId = 1;
+	string area = 1;
 	string name = 2;
-	string employmentTypeId = 3;
+	string employmentType = 3;
 	bool onlyActive = 4;
 }
 
 //The response message containing a job posting
 message JobPostingReply {
 	string id = 1;
-	string areaId = 2;
+	string area = 2;
 	string name = 3;
 	string description = 4;
-	string employmentTypeId = 5;
+	string employmentType = 5;
 	string lastEdition = 6;
 	string lastPublish = 7;
 	bool active = 8;
@@ -47,20 +47,20 @@ message JobPostingListReply {
 
 //The request message to insert a job posting
 message JobPostingInsertRequest {
-	string areaId = 1;
+	string area = 1;
 	string name = 2;
 	string description = 3;
-	string employmentTypeId = 4;
+	string employmentType = 4;
 	bool active = 5;
 }
 
 //The request message to update a job posting
 message JobPostingUpdateRequest {
 	string id = 1;
-	string areaId = 2;
+	string area = 2;
 	string name = 3;
 	string description = 4;
-	string employmentTypeId = 5;
+	string employmentType = 5;
 	bool active = 6;
 }
 
