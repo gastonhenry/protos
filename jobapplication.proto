@@ -1,4 +1,4 @@
-﻿syntax = "proto3";
+syntax = "proto3";
 
 option csharp_namespace = "PPI.Protos";
 
@@ -24,39 +24,40 @@ service JobApplicationManager {
 
 //JobApplicationFilterRequest
 message JobApplicationFilterRequest{
-	string areaId = 1;
+	string area = 1;
 	string name = 2;
 	string jobPostingId = 3;
+	string humanResourcesEvaluation = 4;
 }
 
 //The response message containing a job application
 message JobApplicationReply {
 	string id = 1;
-	string identificationDocumentTypeId = 2;
+	string identificationDocumentType = 2;
 	string identificationDocument = 3;
-	string genderId = 4;
+	string gender = 4;
 	string name = 5;
 	string lastName = 6;
-	string nationalityId = 7;
+	string nationality = 7;
 	string email = 8;
 	string countryCode = 9;
 	string areaCode = 10;
-	string telephoneTypeId = 11;
+	string telephoneType = 11;
 	string telephone = 12;
 	string country = 13;
 	string province = 14;
 	string city = 15;
 	string address = 16;
-	string academicDisciplineId = 17;
-	string employmentTypePreferenceId = 18;
+	string academicDiscipline = 17;
+	string employmentTypePreference = 18;
 	string linkedin = 19;
 	string expectedSalary = 20;
 	string aditionalMessage = 21;
 	bool acceptTerms = 22;
 	string cv = 23;
 	string jobPostingId = 24;
-	string areaId = 25;
-	string humanResourcesEvaluationId = 26;
+	string area = 25;
+	string humanResourcesEvaluation = 26;
 	repeated Comment humanResourcesComments = 27;
 }
 
@@ -67,39 +68,36 @@ message JobApplicationListReply {
 
 //The request message to insert a job application
 message JobApplicationInsertRequest {
-	string identificationDocumentTypeId = 1;
+	string identificationDocumentType = 1;
 	string identificationDocument = 2;
-	string genderId = 3;
+	string gender = 3;
 	string name = 4;
 	string lastName = 5;
-	string nationalityId = 6;
+	string nationality = 6;
 	string email = 7;
 	string countryCode = 8;
 	string areaCode = 9;
-	string telephoneTypeId = 10;
+	string telephoneType = 10;
 	string telephone = 11;
 	string country = 12;
 	string province = 13;
 	string city = 14;
 	string address = 15;
-	string academicDisciplineId = 16;
-	string employmentTypePreferenceId = 17;
+	string academicDiscipline = 16;
+	string employmentTypePreference = 17;
 	string linkedin = 18;
 	string expectedSalary = 19;
 	string aditionalMessage = 20;
 	bool acceptTerms = 21;
 	string cv = 22;
 	string jobPostingId = 23;
-	string areaId = 24;
-	string humanResourcesEvaluationId = 25;
-	repeated Comment humanResourcesComments = 26;
+	string area = 24;
 }
 
 //The request message to update a job application
 message JobApplicationUpdateRequest {
 	string id = 1;
-	string hrStatus = 2;
-	string hrComment = 3;
+	string humanResourcesEvaluation = 2;
 }
 
 //The request message containing the job application's id.
