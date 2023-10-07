@@ -90,7 +90,6 @@ message JobApplicationInsertRequest {
 	string aditionalMessage = 20;
 	bool acceptTerms = 21;
   	bytes cv = 22;
-  	string cvFileName = 23;
 	string jobPostingId = 24;
 	string area = 25;
 }
