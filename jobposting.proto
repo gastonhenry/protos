@@ -25,7 +25,8 @@ message JobPostingFilterRequest{
 	string area = 1;
 	string name = 2;
 	string employmentType = 3;
-	bool onlyActive = 4;
+  	string employmentModality = 4;
+	bool onlyActive = 5;
 }
 
 //The response message containing a job posting
@@ -35,9 +36,10 @@ message JobPostingReply {
 	string name = 3;
 	string description = 4;
 	string employmentType = 5;
-	string lastEdition = 6;
-	string lastPublish = 7;
-	bool active = 8;
+ 	string employmentModality = 6;
+	string lastEdition = 7;
+	string lastPublish = 8;
+	bool active = 9;
 }
 
 //The response message containing a list of job postings
@@ -51,7 +53,8 @@ message JobPostingInsertRequest {
 	string name = 2;
 	string description = 3;
 	string employmentType = 4;
-	bool active = 5;
+  	string employmentModality = 5;
+	bool active = 6;
 }
 
 //The request message to update a job posting
@@ -61,7 +64,8 @@ message JobPostingUpdateRequest {
 	string name = 3;
 	string description = 4;
 	string employmentType = 5;
-	bool active = 6;
+  	string employmentModality = 6;
+	bool active = 7;
 }
 
 //The request message containing the job posting's id.
