@@ -89,9 +89,10 @@ message JobApplicationInsertRequest {
 	string expectedSalary = 19;
 	string aditionalMessage = 20;
 	bool acceptTerms = 21;
-	string cv = 22;
-	string jobPostingId = 23;
-	string area = 24;
+  	bytes cv = 22;
+  	string cvFileName = 23;
+	string jobPostingId = 24;
+	string area = 25;
 }
 
 //The request message to update a job application
