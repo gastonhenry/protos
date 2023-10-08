@@ -54,7 +54,7 @@ message JobApplicationReply {
 	string expectedSalary = 20;
 	string aditionalMessage = 21;
 	bool acceptTerms = 22;
-	string cv = 23;
+  	bytes cv = 23;
 	string jobPostingId = 24;
 	string area = 25;
 	string humanResourcesEvaluation = 26;
