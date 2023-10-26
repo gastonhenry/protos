@@ -59,6 +59,7 @@ message JobApplicationReply {
 	string area = 25;
 	string humanResourcesEvaluation = 26;
 	repeated Comment humanResourcesComments = 27;
+ 	string createdAt = 28;
 }
 
 //The response message containing a list of job applications
